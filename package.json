@@ -1,0 +1,22 @@
+{
+    "name": "@ellismg/pulumi-github-webhooks",
+    "main": "bin/index.js",
+    "version": "0.0.1",
+    "license": "Apache-2.0",
+    "typings": "bin/index.d.ts",
+    "scripts": {
+        "build": "tsc"
+    },
+    "devDependencies": {
+        "@types/node": "latest",
+        "github-webhook-event-types": "^1.1.0",
+        "tslint": "^5.10.0",
+        "typescript": "^2.7.2"
+    },
+    "dependencies": {
+        "@octokit/rest": "^15.9.4",
+        "@pulumi/aws": "^0.14.2",
+        "@pulumi/aws-serverless": "^0.14.0",
+        "@pulumi/pulumi": "^0.14.0"
+    }
+}
