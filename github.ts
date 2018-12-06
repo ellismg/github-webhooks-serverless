@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import * as GitHubApi from "@octokit/rest";
-import * as serverless from  "@pulumi/aws-serverless";
+import * as aws from  "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
 import * as dynamic from "@pulumi/pulumi/dynamic";
 import { RandomResource } from "./random";
@@ -180,7 +180,7 @@ export interface GitHubRepository {
 }
 
 export interface GitHubWebhookRequest {
-    request: serverless.apigateway.Request;
+    request: aws.apigateway.x.Request;
     type: string;
     id: string;
     data: any;
@@ -207,12 +207,12 @@ export class GitHubWebhook extends pulumi.ComponentResource {
             parent: this,
         });
 
-        const api = new serverless.apigateway.API("hook", {
+        const api = new aws.apigateway.x.API("hook", {
             routes: [
                 {
                     path: "/",
                     method: "POST",
-                    handler: async (req) => {
+                    eventHandler: async (req) => {
                         const eventType = req.headers["X-GitHub-Event"];
                         const eventId = req.headers["X-GitHub-Delivery"];
                         const eventSig = req.headers["X-Hub-Signature"];
