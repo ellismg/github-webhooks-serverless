@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import * as GitHubApi from "@octokit/rest";
-import * as aws from  "@pulumi/aws";
+import * as awsx from  "@pulumi/awsx";
 import * as pulumi from "@pulumi/pulumi";
 import * as dynamic from "@pulumi/pulumi/dynamic";
 import * as random from "@pulumi/random";
@@ -180,7 +180,7 @@ export interface GitHubRepository {
 }
 
 export interface GitHubWebhookRequest {
-    request: aws.apigateway.x.Request;
+    request: awsx.apigateway.Request;
     type: string;
     id: string;
     data: any;
@@ -205,7 +205,7 @@ export class GitHubWebhook extends pulumi.ComponentResource {
 
         const secret = new random.RandomString(`${name}-secret`, { length: 32 }, { parent: this });
 
-        const api = new aws.apigateway.x.API("hook", {
+        const api = new awsx.apigateway.API("hook", {
             routes: [
                 {
                     path: "/",
