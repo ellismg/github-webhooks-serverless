@@ -12,6 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { GitHubRepository, GitHubWebhookRequest, GitHubWebhookArgs, GitHubWebhook } from "./github"
+import { GitHubRepository, GitHubWebhook, GitHubWebhookArgs, GitHubWebhookRequest } from "./github";
 
-export { GitHubRepository, GitHubWebhookRequest, GitHubWebhookArgs, GitHubWebhook }
+export { GitHubRepository, GitHubWebhook, GitHubWebhookArgs, GitHubWebhookRequest };
