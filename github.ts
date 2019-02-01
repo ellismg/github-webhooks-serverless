@@ -16,7 +16,7 @@ import * as GitHubApi from "@octokit/rest";
 import * as aws from  "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
 import * as dynamic from "@pulumi/pulumi/dynamic";
-import { RandomResource } from "./random";
+import * as random from "@pulumi/random";
 
 const ghToken = new pulumi.Config("github").require("token");
 
@@ -203,9 +203,7 @@ export class GitHubWebhook extends pulumi.ComponentResource {
 
         super("github:rest:Hook", name, {}, opts);
 
-        const secret = new RandomResource(`${name}-secret`, 32, {
-            parent: this,
-        });
+        const secret = new random.RandomString(`${name}-secret`, { length: 32 }, { parent: this });
 
         const api = new aws.apigateway.x.API("hook", {
             routes: [
@@ -227,7 +225,7 @@ export class GitHubWebhook extends pulumi.ComponentResource {
                         const body = Buffer.from(req.body, req.isBase64Encoded ? "base64" : "utf8");
 
                         const crypto = await import("crypto");
-                        const hmac = crypto.createHmac("sha1", secret.value.get());
+                        const hmac = crypto.createHmac("sha1", secret.result.get());
                         hmac.update(body);
 
                         const digest = `sha1=${hmac.digest("hex")}`;
@@ -266,7 +264,7 @@ export class GitHubWebhook extends pulumi.ComponentResource {
                 new GitHubWebhookResource(`${name}-registration-${repo.owner}-${repo.repo}`, {
                     owner: repo.owner,
                     repo: repo.repo,
-                    secret: secret.value,
+                    secret: secret.result,
                     events: args.events,
                     url: api.url,
                 }, {
@@ -280,7 +278,7 @@ export class GitHubWebhook extends pulumi.ComponentResource {
                 // tslint:disable-next-line no-unused-expression
                 new GitHubWebhookResource(`${name}-registration-${org}`, {
                     org: org,
-                    secret: secret.value,
+                    secret: secret.result,
                     events: args.events,
                     url: api.url,
                 }, {

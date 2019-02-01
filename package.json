@@ -1,7 +1,7 @@
 {
     "name": "@ellismg/pulumi-github-webhooks",
     "main": "bin/index.js",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "license": "Apache-2.0",
     "typings": "bin/index.d.ts",
     "scripts": {
@@ -16,6 +16,7 @@
     "dependencies": {
         "@octokit/rest": "^15.9.4",
         "@pulumi/aws": "^0.16.0",
-        "@pulumi/pulumi": "^0.16.0"
+        "@pulumi/pulumi": "^0.16.0",
+        "@pulumi/random": "^0.3.0"
     }
 }

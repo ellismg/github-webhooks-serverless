@@ -87,6 +87,30 @@
     typescript "^3.0.0"
     upath "^1.1.0"
 
+"@pulumi/pulumi@^0.16.11":
+  version "0.16.14"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-0.16.14.tgz#b8a569a364e46560db0942ac02fe65e3e2288abc"
+  integrity sha512-/tPH0CYe/jig28aAkkt9kdb6isXJ98yfRTv0qj13pZGg3t214JGvEz6KEy0Os6StnsXoSjpxGQIMXhDN4KYH+Q==
+  dependencies:
+    google-protobuf "^3.5.0"
+    grpc "^1.12.2"
+    minimist "^1.2.0"
+    normalize-package-data "^2.4.0"
+    protobufjs "^6.8.6"
+    read-package-tree "^5.2.1"
+    require-from-string "^2.0.1"
+    source-map-support "^0.4.16"
+    ts-node "^7.0.0"
+    typescript "^3.0.0"
+    upath "^1.1.0"
+
+"@pulumi/random@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/random/-/random-0.3.0.tgz#352349a96c660cd1f24ddaaa50c5f6affc1175b1"
+  integrity sha512-vvB3h/aGGCJvNpRzeJoe1TBKOPEvJ8eKPl0pKBGF1TthmBaq2Nan+OJCeCrxlPGAxjws5FMlnI7AXeGS8sVLPA==
+  dependencies:
+    "@pulumi/pulumi" "^0.16.11"
+
 "@types/long@^3.0.32":
   version "3.0.32"
   resolved "https://registry.yarnpkg.com/@types/long/-/long-3.0.32.tgz#f4e5af31e9e9b196d8e5fca8a5e2e20aa3d60b69"
