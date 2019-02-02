@@ -1,6 +1,7 @@
 {
     "name": "@ellismg/pulumi-github-webhooks",
     "main": "bin/index.js",
+    "files": ["bin/**/*"],
     "version": "0.2.0-dev.1",
     "license": "Apache-2.0",
     "typings": "bin/index.d.ts",
