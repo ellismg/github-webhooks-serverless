@@ -4,7 +4,7 @@
     "files": [
         "bin/**/*"
     ],
-    "version": "0.2.0-dev.3",
+    "version": "0.2.0-dev.4",
     "license": "Apache-2.0",
     "typings": "bin/index.d.ts",
     "scripts": {
