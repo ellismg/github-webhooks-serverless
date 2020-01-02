@@ -18,8 +18,8 @@
     },
     "dependencies": {
         "@octokit/rest": "^15.9.4",
-        "@pulumi/awsx": "^0.18.0",
-        "@pulumi/pulumi": "^1.0.0-rc",
-        "@pulumi/random": "^1.0.0-rc"
+        "@pulumi/awsx": "0.18.14",
+        "@pulumi/pulumi": "1.7.1",
+        "@pulumi/random": "1.4.0"
     }
 }
